@@ -1,6 +1,11 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { INestApplication } from '@nestjs/common';
 import * as request from 'supertest';
+
+process.env.PORT = '3000';
+process.env.NODE_ENV = 'test';
+process.env.DATABASE_URL = 'postgresql://user:pass@localhost:5432/temp';
+
 import { AppModule } from '../src/app.module';
 import {
   PostgreSqlContainer,
