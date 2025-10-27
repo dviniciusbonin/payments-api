@@ -15,5 +15,9 @@ jobs:
           node-version: "22"
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
+      - name: Generate Prisma Client
+        run: pnpm run prisma:generate
+        env:
+          DATABASE_URL: postgresql://user:pass@localhost:5432/db
       - name: Eslint
         run: pnpm run lint
