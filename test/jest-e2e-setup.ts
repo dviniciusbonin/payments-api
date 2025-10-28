@@ -1,3 +1,7 @@
+process.env.PORT = '3000';
+process.env.NODE_ENV = 'test';
+process.env.DATABASE_URL = 'postgresql://user:pass@localhost:5432/temp';
+
 global.File = class {
   name: string;
   size: number;

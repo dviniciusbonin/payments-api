@@ -4,10 +4,6 @@ import * as request from 'supertest';
 import { PostgreSqlContainer } from '@testcontainers/postgresql';
 import { AppModule } from '../src/app.module';
 
-process.env.PORT = '3000';
-process.env.NODE_ENV = 'test';
-process.env.DATABASE_URL = 'postgresql://user:pass@localhost:5432/temp';
-
 describe('Charges (e2e)', () => {
   let app: INestApplication;
 
