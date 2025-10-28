@@ -286,12 +286,12 @@ O projeto segue os princípios da **Arquitetura Hexagonal (Ports and Adapters)**
 
 - Entidades de negócio (`Customer`, `Charge`)
 - Value Objects (`Email`, `Document`)
-- Interfaces de repositórios
 - Regras de negócio puras
 
 **Application** (`src/application/`)
 
 - Casos de uso (use cases)
+- Interfaces de repositórios
 - DTOs internos
 - Lógica de aplicação
 - Orquestração de domínio
