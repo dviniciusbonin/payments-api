@@ -12,6 +12,22 @@ services:
     depends_on:
       db:
         condition: service_healthy
+    command: sh -c "npx prisma migrate deploy && node dist/main"
+
+  test:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    env_file:
+      - .env
+    environment:
+      - NODE_ENV=test
+    command: sh -c "pnpm test:e2e"
+    profiles:
+      - test
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+
   db:
     image: postgres:15
     environment:
