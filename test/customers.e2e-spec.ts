@@ -21,6 +21,8 @@ describe('Customers (e2e)', () => {
       .start();
 
     process.env.DATABASE_URL = container.getConnectionUri();
+    process.env.PORT = '3000';
+    process.env.NODE_ENV = 'test';
 
     const { execSync } = require('child_process');
 
