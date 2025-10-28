@@ -12,3 +12,56 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
+enum PaymentMethod {
+  PIX
+  CREDIT_CARD
+  BOLETO
+}
+
+enum ChargeStatus {
+  PENDING
+  PAID
+  FAILED
+  EXPIRED
+}
+
+model Customer {
+  id        String   @id @default(uuid())
+  name      String
+  email     String   @unique
+  document  String   @unique
+  phone     String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  charges   Charge[]
+
+  @@map("customers")
+}
+
+model Charge {
+  id             String         @id @default(uuid())
+  customerId     String
+  amount         Decimal        @db.Decimal(10, 2)
+  currency       String         @default("BRL")
+  paymentMethod  PaymentMethod
+  status         ChargeStatus   @default(PENDING)
+  createdAt      DateTime       @default(now())
+  updatedAt      DateTime       @updatedAt
+  customer       Customer       @relation(fields: [customerId], references: [id], onDelete: Cascade)
+  paymentDetails PaymentDetails?
+
+  @@map("charges")
+}
+
+model PaymentDetails {
+  id                  String    @id @default(uuid())
+  chargeId            String    @unique
+  pixKey              String?   @map("pix_key")
+  boletoDueDate       DateTime? @map("boleto_due_date")
+  cardInstallments    Int?      @map("card_installments")
+  cardLastDigits      String?   @map("card_last_digits")
+  charge              Charge    @relation(fields: [chargeId], references: [id], onDelete: Cascade)
+
+  @@map("payment_details")
+}

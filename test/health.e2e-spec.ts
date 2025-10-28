@@ -53,10 +53,8 @@ describe('Health Check (e2e)', () => {
 
   describe('GET /health', () => {
     it('should return health status with 200', () => {
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
       const httpServer = app.getHttpServer();
 
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
       return request(httpServer)
         .get('/health')
         .expect(200)
@@ -70,10 +68,8 @@ describe('Health Check (e2e)', () => {
     });
 
     it('should check all health indicators', () => {
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
       const httpServer = app.getHttpServer();
 
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
       return request(httpServer)
         .get('/health')
         .expect(200)
@@ -90,10 +86,8 @@ describe('Health Check (e2e)', () => {
     });
 
     it('should return proper structure for health details', () => {
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
       const httpServer = app.getHttpServer();
 
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
       return request(httpServer)
         .get('/health')
         .expect(200)

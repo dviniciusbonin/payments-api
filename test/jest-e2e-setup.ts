@@ -1,4 +1,3 @@
-// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
 global.File = class {
   name: string;
   size: number;
@@ -13,7 +12,6 @@ global.File = class {
   }
 } as any;
 
-// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
 global.Blob = class {
   size: number;
   type: string;

@@ -21,6 +21,7 @@
     "prisma:generate": "prisma generate",
     "prisma:migrate": "prisma migrate dev",
     "prisma:studio": "prisma studio",
+    "prisma:migrate-deploy": "prisma migrate deploy",
     "postinstall": "prisma generate"
   },
   "dependencies": {
@@ -28,6 +29,7 @@
     "@nestjs/config": "^4.0.2",
     "@nestjs/core": "^11.0.1",
     "@nestjs/platform-express": "^11.0.1",
+    "@nestjs/swagger": "^11.2.1",
     "@nestjs/terminus": "^11.0.0",
     "@testcontainers/postgresql": "^11.7.2",
     "class-transformer": "^0.5.1",
