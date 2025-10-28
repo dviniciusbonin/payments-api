@@ -4,9 +4,11 @@ import {
   HealthCheck,
   MemoryHealthIndicator,
 } from '@nestjs/terminus';
-import { PrismaHealthIndicator } from './prisma.health';
-import { PrismaService } from '../infrastructure/prisma/prisma.service';
+import { PrismaHealthIndicator } from '../../prisma/prisma.health';
+import { PrismaService } from '../../prisma/prisma.service';
+import { ApiExcludeController } from '@nestjs/swagger';
 
+@ApiExcludeController()
 @Controller('health')
 export class HealthController {
   constructor(

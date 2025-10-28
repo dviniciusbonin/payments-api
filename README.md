@@ -251,21 +251,6 @@ Navegando para esta URL, você encontrará:
 ]
 ```
 
-## Testes
-
-Executar testes localmente (requer Node.js 22.15 e pnpm):
-
-```bash
-# Testes unitários
-pnpm test
-
-# Testes E2E
-pnpm test:e2e
-
-# Cobertura de testes
-pnpm test:cov
-```
-
 ## CI/CD com GitHub Actions
 
 O projeto utiliza GitHub Actions para integração contínua com os seguintes workflows:
